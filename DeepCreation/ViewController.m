@@ -23,7 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _pointArray = @[[NSValue valueWithCGPoint:CGPointMake(0.5, 0.1)]];
+    _pointArray = @[[NSValue valueWithCGPoint:CGPointMake(0.5, 0.1)],
+                    [NSValue valueWithCGPoint:CGPointMake(0.4, 0.7)],
+                    [NSValue valueWithCGPoint:CGPointMake(0.5, 0.2)],
+                    [NSValue valueWithCGPoint:CGPointMake(0.6, 0.7)],
+                    [NSValue valueWithCGPoint:CGPointMake(0.3, 0.8)],
+                    ];
     _buttonArray = [NSMutableArray array];
     self.imageView.userInteractionEnabled = YES;
     
@@ -32,7 +37,7 @@
             CGPoint pinPoint = [obj CGPointValue];
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             [button setBackgroundImage:[UIImage imageNamed:@"diyuan"] forState:UIControlStateNormal];
-#define BUTTON_HEIGHT 50
+#define BUTTON_HEIGHT 40
             button.frame = CGRectMake(self.imageView.bounds.size.width * pinPoint.x - BUTTON_HEIGHT/2, self.imageView.bounds.size.height * pinPoint.y - BUTTON_HEIGHT/2, BUTTON_HEIGHT, BUTTON_HEIGHT);
             [self.imageView addSubview:button];
             [button setTag:idx];

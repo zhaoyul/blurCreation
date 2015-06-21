@@ -18,7 +18,7 @@
 
 @implementation DeepCreationViewController
 
-#define IMAGE_HEIGHT 500
+#define IMAGE_HEIGHT 700
 
 
 - (void)viewDidLoad {
@@ -37,7 +37,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self dimImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,12 +59,12 @@
     
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
     GPUImageGaussianSelectiveBlurFilter *stillImageFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
-    [stillImageFilter setExcludeCircleRadius:0.2f];
+    [stillImageFilter setExcludeCircleRadius:0.15f];
     CGPoint pointInImage = [self.clothImgView convertPoint:self.view.center fromView:self.view];
     CGPoint relateivePoint = CGPointMake(pointInImage.x/IMAGE_HEIGHT, pointInImage.y/IMAGE_HEIGHT);
     [stillImageFilter setExcludeCirclePoint:relateivePoint];
     
-    [stillImageFilter setBlurRadiusInPixels:10];
+    [stillImageFilter setBlurRadiusInPixels:5];
     
     
     [stillImageSource addTarget:stillImageFilter];
