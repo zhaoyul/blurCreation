@@ -18,12 +18,14 @@
 @implementation ViewController{
     NSArray *_pointArray;
     NSMutableArray *_buttonArray;
+    CGPoint _pinPoint;
+    UIImage *_image;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.height.constant = 0.9f;
-    _pointArray = @[[NSValue valueWithCGPoint:CGPointMake(0.5, 0.5)]];
+    _pointArray = @[[NSValue valueWithCGPoint:CGPointMake(0.5, 0.1)]];
     _buttonArray = [NSMutableArray array];
     self.imageView.userInteractionEnabled = YES;
     
@@ -43,21 +45,19 @@
 }
 
 #pragma mark segue
-static CGPoint pinPoint;
-static UIImage *image;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     DeepCreationViewController *deepVC = segue.destinationViewController;
-    deepVC.pinPoint = pinPoint;
-    deepVC.clothImg = image;
+    deepVC.pinPoint = _pinPoint;
+    deepVC.clothImg = _image;
 }
 
 -(void)clickBtn:(UIButton*) sender{
     
     NSLog(@"Button %ld clicked", sender.tag);
+    _pinPoint = [(NSValue*)_pointArray[sender.tag] CGPointValue];
+    _image = self.imageView.image;
     [self performSegueWithIdentifier:@"toDetail" sender:self];
-    pinPoint = [(NSValue*)_pointArray[sender.tag] CGPointValue];
-    image = self.imageView.image;
 }
 
 - (void)didReceiveMemoryWarning {
