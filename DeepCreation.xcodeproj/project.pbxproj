@@ -10,6 +10,7 @@
 		5773E2B91B37080100C6BD71 /* DeepCreationZoomInTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773E2B81B37080100C6BD71 /* DeepCreationZoomInTransition.m */; };
 		5773E2BC1B370D4200C6BD71 /* DeepCreationZoomOutTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773E2BB1B370D4200C6BD71 /* DeepCreationZoomOutTransition.m */; };
 		5773E2BE1B371E4300C6BD71 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5773E2BD1B371E4300C6BD71 /* 9.png */; };
+		5773E2C11B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773E2C01B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.m */; };
 		D50A75D61B368BDD0048916B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A75D51B368BDD0048916B /* main.m */; };
 		D50A75D91B368BDD0048916B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A75D81B368BDD0048916B /* AppDelegate.m */; };
 		D50A75DC1B368BDD0048916B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A75DB1B368BDD0048916B /* ViewController.m */; };
@@ -40,6 +41,8 @@
 		5773E2BA1B370D4200C6BD71 /* DeepCreationZoomOutTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepCreationZoomOutTransition.h; sourceTree = "<group>"; };
 		5773E2BB1B370D4200C6BD71 /* DeepCreationZoomOutTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepCreationZoomOutTransition.m; sourceTree = "<group>"; };
 		5773E2BD1B371E4300C6BD71 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		5773E2BF1B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGaussianSelectiveBlurFilterWithBrightnewss.h; sourceTree = "<group>"; };
+		5773E2C01B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageGaussianSelectiveBlurFilterWithBrightnewss.m; sourceTree = "<group>"; };
 		6380690E966AD82DCDD85962 /* Pods-DeepCreation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepCreation.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepCreation/Pods-DeepCreation.release.xcconfig"; sourceTree = "<group>"; };
 		76B90200EA3A9C4D6633CB6A /* Pods-DeepCreation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepCreation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeepCreation/Pods-DeepCreation.debug.xcconfig"; sourceTree = "<group>"; };
 		C74EB26FDF3A6FA225F8EA93 /* libPods-DeepCreation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepCreation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +151,8 @@
 		D50A75D31B368BDD0048916B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5773E2BF1B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.h */,
+				5773E2C01B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.m */,
 				D50A75D41B368BDD0048916B /* Info.plist */,
 				D50A75D51B368BDD0048916B /* main.m */,
 			);
@@ -319,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D50A75DC1B368BDD0048916B /* ViewController.m in Sources */,
+				5773E2C11B37315500C6BD71 /* GPUImageGaussianSelectiveBlurFilterWithBrightnewss.m in Sources */,
 				D50A75FD1B3697A50048916B /* DeepCreationViewController.m in Sources */,
 				D50A76011B36993C0048916B /* DCRippleButton.m in Sources */,
 				5773E2BC1B370D4200C6BD71 /* DeepCreationZoomOutTransition.m in Sources */,

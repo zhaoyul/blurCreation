@@ -59,7 +59,7 @@
     UIImage *inputImage = self.clothImgView.image;
     
     GPUImageBrightnessFilter *brightFilter = [[GPUImageBrightnessFilter alloc] init];
-    brightFilter.brightness = 0.2;
+    brightFilter.brightness = 0.1;
     
     
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
@@ -79,5 +79,6 @@
     
     UIImage *currentFilteredVideoFrame = [blurFilter imageFromCurrentFramebuffer];
     self.clothImgView.image = currentFilteredVideoFrame;
+    
 }
 @end
