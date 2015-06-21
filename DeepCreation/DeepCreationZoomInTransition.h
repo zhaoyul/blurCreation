@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface DeepCreationZoomTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@interface DeepCreationZoomInTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
 @end

@@ -6,11 +6,11 @@
 //
 //
 
-#import "DeepCreationZoomTransition.h"
+#import "DeepCreationZoomInTransition.h"
 #import "DeepCreationViewController.h"
 #import "ViewController.h"
 
-@implementation DeepCreationZoomTransition
+@implementation DeepCreationZoomInTransition
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext{
     return 1;

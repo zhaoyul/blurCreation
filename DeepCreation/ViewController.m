@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "DeepCreationViewController.h"
 #import "DCRippleButton.h"
-#import "DeepCreationZoomTransition.h"
+#import "DeepCreationZoomInTransition.h"
 
 @interface ViewController () <UINavigationControllerDelegate>
 @end
@@ -67,7 +67,7 @@
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
     self.navigationController.delegate = nil;
     if ([fromVC isMemberOfClass:[self class]] && [toVC isMemberOfClass:[DeepCreationViewController class]]) {
-        return [DeepCreationZoomTransition new];
+        return [DeepCreationZoomInTransition new];
     }
     return nil;
 }
