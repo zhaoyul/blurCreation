@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DeepCreationViewController : UIViewController
-
+@property (nonatomic, strong) UIImage *clothImg;
+@property (nonatomic) CGPoint pinPoint;
 @end
