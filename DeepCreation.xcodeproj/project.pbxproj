@@ -14,6 +14,7 @@
 		D50A75E11B368BDD0048916B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D50A75E01B368BDD0048916B /* Images.xcassets */; };
 		D50A75E41B368BDD0048916B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D50A75E21B368BDD0048916B /* LaunchScreen.xib */; };
 		D50A75F01B368BDD0048916B /* DeepCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A75EF1B368BDD0048916B /* DeepCreationTests.m */; };
+		D88A0C9CFECF43D345A90E33 /* libPods-DeepCreation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EB26FDF3A6FA225F8EA93 /* libPods-DeepCreation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6380690E966AD82DCDD85962 /* Pods-DeepCreation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepCreation.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepCreation/Pods-DeepCreation.release.xcconfig"; sourceTree = "<group>"; };
+		76B90200EA3A9C4D6633CB6A /* Pods-DeepCreation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepCreation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeepCreation/Pods-DeepCreation.debug.xcconfig"; sourceTree = "<group>"; };
+		C74EB26FDF3A6FA225F8EA93 /* libPods-DeepCreation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepCreation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50A75D01B368BDD0048916B /* DeepCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50A75D41B368BDD0048916B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D50A75D51B368BDD0048916B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88A0C9CFECF43D345A90E33 /* libPods-DeepCreation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		871BF59FEF5925315B475263 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76B90200EA3A9C4D6633CB6A /* Pods-DeepCreation.debug.xcconfig */,
+				6380690E966AD82DCDD85962 /* Pods-DeepCreation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9C628F55B2144C1763818258 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C74EB26FDF3A6FA225F8EA93 /* libPods-DeepCreation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D50A75C71B368BDC0048916B = {
 			isa = PBXGroup;
 			children = (
 				D50A75D21B368BDD0048916B /* DeepCreation */,
 				D50A75EC1B368BDD0048916B /* DeepCreationTests */,
 				D50A75D11B368BDD0048916B /* Products */,
+				871BF59FEF5925315B475263 /* Pods */,
+				9C628F55B2144C1763818258 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D50A75F31B368BDD0048916B /* Build configuration list for PBXNativeTarget "DeepCreation" */;
 			buildPhases = (
+				4E9B0B66944335692C2CEFF1 /* Check Pods Manifest.lock */,
 				D50A75CC1B368BDD0048916B /* Sources */,
 				D50A75CD1B368BDD0048916B /* Frameworks */,
 				D50A75CE1B368BDD0048916B /* Resources */,
+				5376FACB5C0698B45C271CC7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E9B0B66944335692C2CEFF1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5376FACB5C0698B45C271CC7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeepCreation/Pods-DeepCreation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D50A75CC1B368BDD0048916B /* Sources */ = {
@@ -345,6 +404,7 @@
 		};
 		D50A75F41B368BDD0048916B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B90200EA3A9C4D6633CB6A /* Pods-DeepCreation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DeepCreation/Info.plist;
@@ -355,6 +415,7 @@
 		};
 		D50A75F51B368BDD0048916B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6380690E966AD82DCDD85962 /* Pods-DeepCreation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DeepCreation/Info.plist;
@@ -416,6 +477,7 @@
 				D50A75F51B368BDD0048916B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D50A75F61B368BDD0048916B /* Build configuration list for PBXNativeTarget "DeepCreationTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +486,7 @@
 				D50A75F81B368BDD0048916B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
