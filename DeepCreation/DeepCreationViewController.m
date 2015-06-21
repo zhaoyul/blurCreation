@@ -8,6 +8,7 @@
 
 #import "DeepCreationViewController.h"
 #import "DeepCreationZoomOutTransition.h"
+#import <GPUImage.h>
 
 
 
@@ -17,7 +18,7 @@
 
 @implementation DeepCreationViewController
 
-#define IMAGE_HEIGHT 700
+#define IMAGE_HEIGHT 500
 
 
 - (void)viewDidLoad {
@@ -41,6 +42,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    [self dimImage];
     // Dispose of any resources that can be recreated.
 }
 
@@ -49,5 +51,27 @@
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
     self.navigationController.delegate = nil;
     return [DeepCreationZoomOutTransition new];
+}
+
+#pragma mark GPUImage
+-(void) dimImage{
+    UIImage *inputImage = self.clothImgView.image;
+    
+    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
+    GPUImageGaussianSelectiveBlurFilter *stillImageFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
+    [stillImageFilter setExcludeCircleRadius:0.2f];
+    CGPoint pointInImage = [self.clothImgView convertPoint:self.view.center fromView:self.view];
+    CGPoint relateivePoint = CGPointMake(pointInImage.x/IMAGE_HEIGHT, pointInImage.y/IMAGE_HEIGHT);
+    [stillImageFilter setExcludeCirclePoint:relateivePoint];
+    
+    [stillImageFilter setBlurRadiusInPixels:10];
+    
+    
+    [stillImageSource addTarget:stillImageFilter];
+    [stillImageFilter useNextFrameForImageCapture];
+    [stillImageSource processImage];
+    
+    UIImage *currentFilteredVideoFrame = [stillImageFilter imageFromCurrentFramebuffer];
+    self.clothImgView.image = currentFilteredVideoFrame;
 }
 @end
