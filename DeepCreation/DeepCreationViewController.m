@@ -16,7 +16,9 @@
 
 @end
 
-@implementation DeepCreationViewController
+@implementation DeepCreationViewController{
+    UIImageView *blureImageView;
+}
 
 #define IMAGE_HEIGHT 700
 
@@ -31,6 +33,8 @@
     CGFloat x = self.view.center.x - anchorInParent.x;
     CGFloat y = self.view.center.y - anchorInParent.y;
     self.clothImgView.transform = CGAffineTransformMakeTranslation(x, y);
+    blureImageView = [UIImageView new];
+    blureImageView.frame = self.clothImgView.frame;
     
     self.navigationController.delegate = self;
 }
@@ -38,6 +42,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self dimImage];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [blureImageView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,28 +66,55 @@
 -(void) dimImage{
     
     UIImage *inputImage = self.clothImgView.image;
+    UIImage *toBeBluredImage = self.clothImgView.image;
+    {
+        GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:toBeBluredImage];
+        GPUImageGaussianSelectiveBlurFilter *blurFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
+        [blurFilter setExcludeCircleRadius:0.17f];
+        CGPoint pointInImage = [self.clothImgView convertPoint:self.view.center fromView:self.view];
+        CGPoint relateivePoint = CGPointMake(pointInImage.x/IMAGE_HEIGHT, pointInImage.y/IMAGE_HEIGHT);
+        [blurFilter setExcludeCirclePoint:relateivePoint];
+        
+        [blurFilter setBlurRadiusInPixels:15];
+        [stillImageSource addTarget:blurFilter];
+        [blurFilter useNextFrameForImageCapture];
+        [stillImageSource processImage];
+        
+        UIImage *currentFilteredVideoFrame = [blurFilter imageFromCurrentFramebuffer];
+        blureImageView.image = currentFilteredVideoFrame;
+        [self.view addSubview:blureImageView];
+        
+        [self cutHoleInImageView:blureImageView atPoint:pointInImage withRadius:70];
+
+    }
     
     GPUImageBrightnessFilter *brightFilter = [[GPUImageBrightnessFilter alloc] init];
-    brightFilter.brightness = 0.1;
+    brightFilter.brightness = 0.05;
     
     
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
-    GPUImageGaussianSelectiveBlurFilter *blurFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
-    [blurFilter setExcludeCircleRadius:0.15f];
-    CGPoint pointInImage = [self.clothImgView convertPoint:self.view.center fromView:self.view];
-    CGPoint relateivePoint = CGPointMake(pointInImage.x/IMAGE_HEIGHT, pointInImage.y/IMAGE_HEIGHT);
-    [blurFilter setExcludeCirclePoint:relateivePoint];
-    
-    [blurFilter setBlurRadiusInPixels:10];
     
     
     [stillImageSource addTarget:brightFilter];
-    [brightFilter addTarget:blurFilter];
-    [blurFilter useNextFrameForImageCapture];
+    [brightFilter useNextFrameForImageCapture];
     [stillImageSource processImage];
     
-    UIImage *currentFilteredVideoFrame = [blurFilter imageFromCurrentFramebuffer];
+    UIImage *currentFilteredVideoFrame = [brightFilter imageFromCurrentFramebuffer];
     self.clothImgView.image = currentFilteredVideoFrame;
     
+}
+
+-(void)cutHoleInImageView:(UIImageView*)imageView atPoint:(CGPoint)point withRadius: (float)circleRadius
+{
+    CGRect imageViewFrame = imageView.bounds;
+    CGRect circleFrame = CGRectMake(point.x-circleRadius/2,point.y-circleRadius/2,circleRadius,circleRadius);
+    CAShapeLayer* shapeLayer = [CAShapeLayer layer];
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddEllipseInRect(path, nil, circleFrame);
+    CGPathAddRect(path, nil, imageViewFrame);
+    shapeLayer.path = path;
+    CGPathRelease(path);
+    shapeLayer.fillRule = kCAFillRuleEvenOdd;
+    imageView.layer.mask = shapeLayer;
 }
 @end

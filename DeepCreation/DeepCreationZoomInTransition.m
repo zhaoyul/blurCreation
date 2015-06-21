@@ -34,6 +34,7 @@
     } completion:^(BOOL finished) {
         fromVC.imageView.alpha = 1;
         [container addSubview:toVC.view];
+        [snapshootOfProduct removeFromSuperview];
         [transitionContext completeTransition:YES];
     }];
 }
