@@ -7,7 +7,7 @@
 //
 
 #import "DeepCreationViewController.h"
-#import "DeepCreationZoomInTransition.h"
+#import "DeepCreationZoomOutTransition.h"
 
 
 
@@ -30,6 +30,8 @@
     CGFloat x = self.view.center.x - anchorInParent.x;
     CGFloat y = self.view.center.y - anchorInParent.y;
     self.clothImgView.transform = CGAffineTransformMakeTranslation(x, y);
+    
+    self.navigationController.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -44,4 +46,8 @@
 
 #pragma mark UINavigationControllerDelegate
 
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    self.navigationController.delegate = nil;
+    return [DeepCreationZoomOutTransition new];
+}
 @end

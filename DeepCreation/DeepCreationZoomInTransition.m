@@ -20,7 +20,6 @@
     ViewController* fromVC = (ViewController*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     DeepCreationViewController* toVC = (DeepCreationViewController*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
    
-    [toVC.view layoutIfNeeded];
     
     UIView* container = [transitionContext containerView];
     
