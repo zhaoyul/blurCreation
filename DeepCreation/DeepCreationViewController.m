@@ -70,7 +70,7 @@
     {
         GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:toBeBluredImage];
         GPUImageGaussianSelectiveBlurFilter *blurFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
-        [blurFilter setExcludeCircleRadius:0.17f];
+        [blurFilter setExcludeCircleRadius:0.13f];
         CGPoint pointInImage = [self.clothImgView convertPoint:self.view.center fromView:self.view];
         CGPoint relateivePoint = CGPointMake(pointInImage.x/IMAGE_HEIGHT, pointInImage.y/IMAGE_HEIGHT);
         [blurFilter setExcludeCirclePoint:relateivePoint];
@@ -84,12 +84,12 @@
         blureImageView.image = currentFilteredVideoFrame;
         [self.view addSubview:blureImageView];
         
-        [self cutHoleInImageView:blureImageView atPoint:pointInImage withRadius:70];
+        [self cutHoleInImageView:blureImageView atPoint:pointInImage withRadius:100];
 
     }
     
     GPUImageBrightnessFilter *brightFilter = [[GPUImageBrightnessFilter alloc] init];
-    brightFilter.brightness = 0.05;
+    brightFilter.brightness = 0.01;
     
     
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];

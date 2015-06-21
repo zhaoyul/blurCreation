@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9.png" translatesAutoresizingMaskIntoConstraints="NO" id="EE2-Yh-81e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.png" translatesAutoresizingMaskIntoConstraints="NO" id="EE2-Yh-81e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EE2-Yh-81e" secondAttribute="height" multiplier="1:1" id="PU0-dr-YzI">
@@ -122,6 +122,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9.png" width="1400" height="1400"/>
+        <image name="x.png" width="1400" height="1400"/>
     </resources>
 </document>
