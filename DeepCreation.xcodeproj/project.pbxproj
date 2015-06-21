@@ -14,6 +14,10 @@
 		D50A75E11B368BDD0048916B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D50A75E01B368BDD0048916B /* Images.xcassets */; };
 		D50A75E41B368BDD0048916B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D50A75E21B368BDD0048916B /* LaunchScreen.xib */; };
 		D50A75F01B368BDD0048916B /* DeepCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A75EF1B368BDD0048916B /* DeepCreationTests.m */; };
+		D50A75FA1B3694B50048916B /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = D50A75F91B3694B50048916B /* 5.png */; };
+		D50A75FD1B3697A50048916B /* DeepCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A75FC1B3697A50048916B /* DeepCreationViewController.m */; };
+		D50A76011B36993C0048916B /* DCRippleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A76001B36993C0048916B /* DCRippleButton.m */; };
+		D50A76031B369D760048916B /* diyuan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D50A76021B369D760048916B /* diyuan@3x.png */; };
 		D88A0C9CFECF43D345A90E33 /* libPods-DeepCreation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EB26FDF3A6FA225F8EA93 /* libPods-DeepCreation.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,12 @@
 		D50A75E91B368BDD0048916B /* DeepCreationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepCreationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50A75EE1B368BDD0048916B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D50A75EF1B368BDD0048916B /* DeepCreationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeepCreationTests.m; sourceTree = "<group>"; };
+		D50A75F91B3694B50048916B /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		D50A75FB1B3697A50048916B /* DeepCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepCreationViewController.h; sourceTree = "<group>"; };
+		D50A75FC1B3697A50048916B /* DeepCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepCreationViewController.m; sourceTree = "<group>"; };
+		D50A75FF1B36993C0048916B /* DCRippleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRippleButton.h; sourceTree = "<group>"; };
+		D50A76001B36993C0048916B /* DCRippleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRippleButton.m; sourceTree = "<group>"; };
+		D50A76021B369D760048916B /* diyuan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diyuan@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,8 @@
 		D50A75C71B368BDC0048916B = {
 			isa = PBXGroup;
 			children = (
+				D50A76021B369D760048916B /* diyuan@3x.png */,
+				D50A75F91B3694B50048916B /* 5.png */,
 				D50A75D21B368BDD0048916B /* DeepCreation */,
 				D50A75EC1B368BDD0048916B /* DeepCreationTests */,
 				D50A75D11B368BDD0048916B /* Products */,
@@ -105,6 +117,7 @@
 		D50A75D21B368BDD0048916B /* DeepCreation */ = {
 			isa = PBXGroup;
 			children = (
+				D50A75FE1B3699240048916B /* RippleButton */,
 				D50A75D71B368BDD0048916B /* AppDelegate.h */,
 				D50A75D81B368BDD0048916B /* AppDelegate.m */,
 				D50A75DA1B368BDD0048916B /* ViewController.h */,
@@ -113,6 +126,8 @@
 				D50A75E01B368BDD0048916B /* Images.xcassets */,
 				D50A75E21B368BDD0048916B /* LaunchScreen.xib */,
 				D50A75D31B368BDD0048916B /* Supporting Files */,
+				D50A75FB1B3697A50048916B /* DeepCreationViewController.h */,
+				D50A75FC1B3697A50048916B /* DeepCreationViewController.m */,
 			);
 			path = DeepCreation;
 			sourceTree = "<group>";
@@ -141,6 +156,15 @@
 				D50A75EE1B368BDD0048916B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D50A75FE1B3699240048916B /* RippleButton */ = {
+			isa = PBXGroup;
+			children = (
+				D50A75FF1B36993C0048916B /* DCRippleButton.h */,
+				D50A76001B36993C0048916B /* DCRippleButton.m */,
+			);
+			name = RippleButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +250,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D50A75DF1B368BDD0048916B /* Main.storyboard in Resources */,
+				D50A75FA1B3694B50048916B /* 5.png in Resources */,
 				D50A75E41B368BDD0048916B /* LaunchScreen.xib in Resources */,
+				D50A76031B369D760048916B /* diyuan@3x.png in Resources */,
 				D50A75E11B368BDD0048916B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +305,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D50A75DC1B368BDD0048916B /* ViewController.m in Sources */,
+				D50A75FD1B3697A50048916B /* DeepCreationViewController.m in Sources */,
+				D50A76011B36993C0048916B /* DCRippleButton.m in Sources */,
 				D50A75D91B368BDD0048916B /* AppDelegate.m in Sources */,
 				D50A75D61B368BDD0048916B /* main.m in Sources */,
 			);
