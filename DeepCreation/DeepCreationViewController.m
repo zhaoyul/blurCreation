@@ -55,23 +55,29 @@
 
 #pragma mark GPUImage
 -(void) dimImage{
+    
     UIImage *inputImage = self.clothImgView.image;
     
+    GPUImageBrightnessFilter *brightFilter = [[GPUImageBrightnessFilter alloc] init];
+    brightFilter.brightness = 0.2;
+    
+    
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
-    GPUImageGaussianSelectiveBlurFilter *stillImageFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
-    [stillImageFilter setExcludeCircleRadius:0.15f];
+    GPUImageGaussianSelectiveBlurFilter *blurFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
+    [blurFilter setExcludeCircleRadius:0.15f];
     CGPoint pointInImage = [self.clothImgView convertPoint:self.view.center fromView:self.view];
     CGPoint relateivePoint = CGPointMake(pointInImage.x/IMAGE_HEIGHT, pointInImage.y/IMAGE_HEIGHT);
-    [stillImageFilter setExcludeCirclePoint:relateivePoint];
+    [blurFilter setExcludeCirclePoint:relateivePoint];
     
-    [stillImageFilter setBlurRadiusInPixels:5];
+    [blurFilter setBlurRadiusInPixels:10];
     
     
-    [stillImageSource addTarget:stillImageFilter];
-    [stillImageFilter useNextFrameForImageCapture];
+    [stillImageSource addTarget:brightFilter];
+    [brightFilter addTarget:blurFilter];
+    [blurFilter useNextFrameForImageCapture];
     [stillImageSource processImage];
     
-    UIImage *currentFilteredVideoFrame = [stillImageFilter imageFromCurrentFramebuffer];
+    UIImage *currentFilteredVideoFrame = [blurFilter imageFromCurrentFramebuffer];
     self.clothImgView.image = currentFilteredVideoFrame;
 }
 @end
