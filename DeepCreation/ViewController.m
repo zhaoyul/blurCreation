@@ -9,10 +9,9 @@
 #import "ViewController.h"
 #import "DeepCreationViewController.h"
 #import "DCRippleButton.h"
+#import "DeepCreationZoomTransition.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@interface ViewController () <UINavigationControllerDelegate>
 @end
 
 @implementation ViewController{
@@ -24,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.height.constant = 0.9f;
     _pointArray = @[[NSValue valueWithCGPoint:CGPointMake(0.5, 0.1)]];
     _buttonArray = [NSMutableArray array];
     self.imageView.userInteractionEnabled = YES;
@@ -54,6 +52,7 @@
 
 -(void)clickBtn:(UIButton*) sender{
     
+    self.navigationController.delegate = self;
     NSLog(@"Button %ld clicked", sender.tag);
     _pinPoint = [(NSValue*)_pointArray[sender.tag] CGPointValue];
     _image = self.imageView.image;
@@ -65,4 +64,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    self.navigationController.delegate = nil;
+    if ([fromVC isMemberOfClass:[self class]] && [toVC isMemberOfClass:[DeepCreationViewController class]]) {
+        return [DeepCreationZoomTransition new];
+    }
+    return nil;
+}
 @end

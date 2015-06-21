@@ -11,4 +11,5 @@
 @interface DeepCreationViewController : UIViewController
 @property (nonatomic, strong) UIImage *clothImg;
 @property (nonatomic) CGPoint pinPoint;
+@property (weak, nonatomic) IBOutlet UIImageView *clothImgView;
 @end

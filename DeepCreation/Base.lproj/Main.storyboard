@@ -35,73 +35,40 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="on7-sZ-9eI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="QTY-Yh-jp1">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                                    </constraint>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="QTY-Yh-jp1"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="QTY-Yh-jp1"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="on7-sZ-9eI" secondAttribute="centerX" id="D0r-hC-BoE"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="EE2-Yh-81e" secondAttribute="bottom" constant="65" id="UbM-nD-XZW">
-                                <variation key="heightClass=regular-widthClass=compact" constant="200"/>
-                            </constraint>
-                            <constraint firstAttribute="width" secondItem="on7-sZ-9eI" secondAttribute="width" id="opU-yV-PTu">
                                 <variation key="heightClass=regular-widthClass=compact" constant="200"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="EE2-Yh-81e" secondAttribute="centerX" constant="-0.5" id="rvW-KH-6kB">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="EE2-Yh-81e" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="wUb-51-QUB"/>
-                            <constraint firstItem="on7-sZ-9eI" firstAttribute="top" secondItem="EE2-Yh-81e" secondAttribute="bottom" constant="8" symbolic="YES" id="yhT-7l-kSb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="EE2-Yh-81e"/>
-                                <exclude reference="on7-sZ-9eI"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="UbM-nD-XZW"/>
                                 <exclude reference="rvW-KH-6kB"/>
                                 <exclude reference="wUb-51-QUB"/>
-                                <exclude reference="D0r-hC-BoE"/>
-                                <exclude reference="opU-yV-PTu"/>
-                                <exclude reference="yhT-7l-kSb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="EE2-Yh-81e"/>
-                                <include reference="on7-sZ-9eI"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="UbM-nD-XZW"/>
                                 <include reference="rvW-KH-6kB"/>
                                 <include reference="wUb-51-QUB"/>
-                                <include reference="D0r-hC-BoE"/>
-                                <include reference="opU-yV-PTu"/>
-                                <include reference="yhT-7l-kSb"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="3Ek-EI-zZH"/>
                     <connections>
-                        <outlet property="height" destination="QTY-Yh-jp1" id="sQy-14-fTL"/>
                         <outlet property="imageView" destination="EE2-Yh-81e" id="Xqp-EQ-ViJ"/>
                         <segue destination="45M-tF-571" kind="show" identifier="toDetail" id="yXa-WY-ySF"/>
                     </connections>

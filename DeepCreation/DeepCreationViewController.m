@@ -7,11 +7,11 @@
 //
 
 #import "DeepCreationViewController.h"
+#import "DeepCreationZoomTransition.h"
 
 
 
-@interface DeepCreationViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *clothImgView;
+@interface DeepCreationViewController () <UINavigationControllerDelegate>
 
 @end
 
@@ -22,10 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     self.clothImgView.image = self.clothImg;
     self.clothImgView.frame = CGRectMake(0, 0, IMAGE_HEIGHT, IMAGE_HEIGHT);
     CGPoint anchorPoint = CGPointMake(IMAGE_HEIGHT * self.pinPoint.x, IMAGE_HEIGHT *self.pinPoint.y);
@@ -34,6 +30,10 @@
     CGFloat x = self.view.center.x - anchorInParent.x;
     CGFloat y = self.view.center.y - anchorInParent.y;
     self.clothImgView.transform = CGAffineTransformMakeTranslation(x, y);
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
 }
 
@@ -42,27 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
-{
-    CGPoint newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x,
-                                   view.bounds.size.height * anchorPoint.y);
-    CGPoint oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x,
-                                   view.bounds.size.height * view.layer.anchorPoint.y);
-    
-    newPoint = CGPointApplyAffineTransform(newPoint, view.transform);
-    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
-    
-    CGPoint position = view.layer.position;
-    
-    position.x -= oldPoint.x;
-    position.x += newPoint.x;
-    
-    position.y -= oldPoint.y;
-    position.y += newPoint.y;
-    
-    view.layer.position = position;
-    view.layer.anchorPoint = anchorPoint;
-}
-
+#pragma mark UINavigationControllerDelegate
 
 @end
